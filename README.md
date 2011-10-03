@@ -10,6 +10,14 @@ Create a config file located at `~/.[TARGET]rc` for each target that looks somet
     cloudfiles_api_key = API_KEY
     mail_password = EMAIL_PASSWORD
 
+## Install ##
+
+    rake install
+
+## Run a backup ##
+
+    rake backup[trigger_name]
+
 ## TODO ##
 
 scheduled cleanup of ~/.backup often

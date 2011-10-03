@@ -1,6 +1,6 @@
 require 'rbrc'
 
-Rbrc::Config::register(:sharleena_backup_plan, secure: true)
+Rbrc::Config.register(:sharleena_backup)
 
 Backup::Model.new(:sharleena, 'General workstation backup') do
 
