@@ -16,7 +16,7 @@ Create a config file located at `~/.[TARGET]rc` for each target that looks somet
 
 ## Run a backup ##
 
-    rake backup[trigger_name]
+    rake backup[system_name]
 
 ## TODO ##
 

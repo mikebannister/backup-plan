@@ -5,13 +5,13 @@ Rbrc::Config.register(:sharleena_backup)
 Backup::Model.new(:sharleena, 'General workstation backup') do
 
   encrypt_with OpenSSL do |encryption|
-    encryption.password = Rbrc::Config.sharleena_backup_plan.password
+    encryption.password = Rbrc::Config.sharleena_backup.password
     encryption.base64   = true
     encryption.salt     = true
   end
 
   store_with CloudFiles do |cf|
-    cf.api_key   = Rbrc::Config.sharleena_backup_plan.cloudfiles_api_key
+    cf.api_key   = Rbrc::Config.sharleena_backup.cloudfiles_api_key
     cf.username  = 'mikebannister'
     cf.container = 'backup'
     cf.path      = '/'
@@ -28,7 +28,7 @@ Backup::Model.new(:sharleena, 'General workstation backup') do
     mail.port                 = 587
     mail.domain               = 'gmail.com'
     mail.user_name            = 'mikebannister@gmail.com'
-    mail.password             = Rbrc::Config.sharleena_backup_plan.mail_password
+    mail.password             = Rbrc::Config.sharleena_backup.mail_password
     mail.authentication       = 'plain'
     mail.enable_starttls_auto = true
   end

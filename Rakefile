@@ -7,17 +7,17 @@ class RakeArgumentRequiredError < Exception
   end
 end
 
-task :backup, :trigger, :environment do |task, args|
+task :backup, :system, :environment do |task, args|
   root_path = '/Users/mike/.backup'
-  trigger = args[:trigger]
+  system = args[:system]
 
-  raise RakeArgumentRequiredError.new('trigger') unless trigger
+  raise RakeArgumentRequiredError.new('system') unless system
 
-  trigger_path = File.join(root_path, trigger)
+  system_path = File.join(root_path, system)
 
-  FileUtils.mkdir_p(trigger_path)
+  FileUtils.mkdir_p(system_path)
 
-  puts `bundle exec backup perform --trigger #{trigger} --config-file=#{trigger}/config.rb # --data-path=$TRIGGER_PATH/data --tmp-path=#{trigger_path}/tmp --log-path=#{trigger_path}/log --cache-path=#{trigger_path}/cache`
+  puts `bundle exec backup perform --trigger #{system} --config-file=systems/#{system}.rb # --data-path=#{system_path}/data --tmp-path=#{system_path}/tmp --log-path=#{system_path}/log --cache-path=#{system_path}/cache`
 end
 
 task :install, :environment do |task, args|
