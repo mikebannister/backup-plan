@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
-# gem 'rbrc', '~> 0.0.1'
-gem 'rbrc', :path => '../rbrc'
+gem 'rbrc', '~> 0.0.2'
 
 gem 'backup', '~> 3.0.18'
 gem 'mail', '~> 2.3.0'
