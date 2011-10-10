@@ -10,12 +10,11 @@ Backup::Model.new(:sharleena, 'General workstation backup') do
     encryption.salt     = true
   end
 
-  store_with CloudFiles do |cf|
-    cf.api_key   = Rbrc::Config.sharleena_backup.cloudfiles_api_key
-    cf.username  = 'mikebannister'
-    cf.container = 'backup'
-    cf.path      = '/'
-    cf.keep      = 20
+  store_with SCP do |server|
+    server.username = 'mikebannister'
+    server.ip       = 'mikebannister.strongspace.com'
+    server.path     = '/strongspace/mikebannister/home'
+    server.keep     = 30
   end
 
   notify_by Mail do |mail|
